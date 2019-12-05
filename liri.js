@@ -34,3 +34,7 @@ function spotifyThis(song) {
         " | " + "Album: " + data.tracks.items[0].album.name)
     })
 }
+// movie-this Function
+function movieThis(movie){
+    
+}
