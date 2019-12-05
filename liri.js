@@ -17,7 +17,7 @@ function concert(artist){
         console.log("Artist: " + artist + 
         " | " + "Venue: " + response.data[0].venue.name + 
         " ( " + "Location: " + response.data[0].venue.country.region.city + ", " + response.data[0].venue.country.region + " | " + response.data[0].venue.country + " )" +
-        )
+        " | " + "Date: " + moment().format(response.data[0].datetime))
     }
     )
 }
