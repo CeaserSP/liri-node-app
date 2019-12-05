@@ -1,6 +1,9 @@
 console.log('this is loaded');
 
 exports.spotify = {
-  id: process.env.SPOTIFY_ID,
+  idS: process.env.SPOTIFY_ID,
   secret: process.env.SPOTIFY_SECRET
+};
+exports.omdb = {
+    idM: process.env.OMDB_ID
 };

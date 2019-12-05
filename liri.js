@@ -9,6 +9,7 @@ var fs = require("fs");
 var res = process.argv[3]
 
 var spotify = new Spotify(keys.spotify);
+var omdb = 
 
 // concert-this Function
 function concertThis(artist) {
@@ -36,5 +37,9 @@ function spotifyThis(song) {
 }
 // movie-this Function
 function movieThis(movie){
-    
+    if !(movie){
+movie = "Mr. Nobody."
+    }
+    var mQueryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
+    axios.get(bQueryUrl).then()
 }
