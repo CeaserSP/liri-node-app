@@ -42,10 +42,18 @@ function movieThis(movie) {
     }
     var mQueryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
     axios.get(bQueryUrl).then(
-        function (res) {
+        function (response) {
             if (!movie) {
                 movie = "Mr. Nobody."
             }
+            console.log("Title: " + response.data[0].Title + 
+            " | " + "Year: " + response.data[0].Year +
+            " | " + "Rated: " + response.data[0].Rated +
+            " | " + "Rotten Tomato Score: " + response.data[0].Ratings[2].Value +
+            " | " + "Country: " + response.data[0].Country +
+            " | " + "Language: " + response.data[0].Language+
+            " | " + "Plot: " + response.data[0].Plot +
+            " | " + "Actors: " + response.data[0].Actors)
         }
     )
 }
