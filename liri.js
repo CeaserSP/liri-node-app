@@ -60,3 +60,8 @@ function movieThis(movie) {
     )
 }
 // TO DO: do-what-it-says, Test
+// switch statment to take in a three functions
+switch(process.argv[2]){
+    case "spotify-this-song":
+        spotifyThis(res);
+}
