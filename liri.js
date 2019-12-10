@@ -24,7 +24,7 @@ function concertThis(artist) {
 }
 // spotify-this-song Function
 function spotifyThis(song) {
-    if (song === ''){
+    if (song === '') {
         song = "The Sign";
     }
     spotify.search({ type: "Song: ", res: song }, function (err, data) {
@@ -61,7 +61,15 @@ function movieThis(movie) {
 }
 // TO DO: do-what-it-says, Test
 // switch statment to take in a three functions
-switch(process.argv[2]){
+switch (process.argv[2]) {
     case "spotify-this-song":
         spotifyThis(res);
+        break;
+    case "concert-this":
+        concertThis(res);
+        break;
+    case "movie-this":
+        movieThis(res);
+        break;
+
 }
