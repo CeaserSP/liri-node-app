@@ -6,9 +6,32 @@ var axios = require("axios");
 var moment = require("moment");
 var fs = require("fs");
 
-var res = process.argv[3]
-
+var res = process.argv[3];
+// console.log(keys)
+// var event = process.argv[2];
 var spotify = new Spotify(keys.spotify);
+// switch statment to take in a three functions
+switch (process.argv) {
+    case "spotify-this-song":
+        spotifyThis(res);
+        break;
+    case "concert-this":
+        concertThis(res);
+        break;
+    case "movie-this":
+        movieThis(res);
+        break;
+// fs read. retrieve parse
+default:
+    fs.readFile("random.txt", "utf8", function(error, data){
+        var data = data.split(",");
+        var songDef = data[1];
+        if(error){
+            return console.log(error)
+        }
+        spotifyThis(songDef);
+    })
+}
 
 // concert-this Function
 function concertThis(artist) {
@@ -58,27 +81,4 @@ function movieThis(movie) {
                 " | " + "Actors: " + response.data[0].Actors)
         }
     )
-}
-// TO DO: do-what-it-says, Test
-// switch statment to take in a three functions
-switch (process.argv[2]) {
-    case "spotify-this-song":
-        spotifyThis(res);
-        break;
-    case "concert-this":
-        concertThis(res);
-        break;
-    case "movie-this":
-        movieThis(res);
-        break;
-// fs read. retrieve parse
-default:
-    fs.readFile("random.txt", "utf8", function(error, data){
-        var data = data.split(",");
-        var songDef = data[1];
-        if(error){
-            return console.log(error)
-        }
-        spotifyThis(songDef);
-    })
 }
