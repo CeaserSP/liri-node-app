@@ -76,6 +76,9 @@ default:
     fs.readFile("random.txt", "utf8", function(error, data){
         var data = data.split(",");
         var songDef = data[1];
-        
+        if(error){
+            return console.log(error)
+        }
+        spotifyThis(songDef);
     })
 }
