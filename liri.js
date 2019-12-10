@@ -71,5 +71,10 @@ switch (process.argv[2]) {
     case "movie-this":
         movieThis(res);
         break;
-
+// fs read. retrieve parse
+default:
+    fs.readFile("random.txt", "utf8", function(error, data){
+        var data = data.split(",");
+        
+    })
 }
