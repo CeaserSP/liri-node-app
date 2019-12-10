@@ -75,6 +75,7 @@ switch (process.argv[2]) {
 default:
     fs.readFile("random.txt", "utf8", function(error, data){
         var data = data.split(",");
+        var songDef = data[1];
         
     })
 }
