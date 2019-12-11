@@ -47,13 +47,18 @@ function doThis() {
 }
 // concert-this Function
 function concertThis(artist) {
+    if (artist === '') {
+        artist = "celine dion";
+    }
     var bQueryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
+    // console.log(bQueryUrl);
     // retrieve URL
     axios.get(bQueryUrl).then(
         function (response) {
+            console.log(artist);
             console.log("Artist: " + artist +
                 " | " + "Venue: " + response.data[0].venue.name +
-                " ( " + "Location: " + response.data[0].venue.country.region.city + ", " + response.data[0].venue.country.region + " | " + response.data[0].venue.country + " )" +
+                " ( " + "Location: " + response.data[0].venue.city + ", " + response.data[0].venue.region + " | " + response.data[0].venue.country + " )" +
                 " | " + "Date: " + moment().format(response.data[0].datetime));
         })
 }
@@ -81,7 +86,7 @@ function movieThis(movie) {
     }
     // console.log(movie);
     var mQueryUrl = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
-    console.log(mQueryUrl);
+    // console.log(mQueryUrl);
     axios.get(mQueryUrl).then(
         function (response) {
             if (!movie) {
