@@ -7,11 +7,12 @@ var moment = require("moment");
 var fs = require("fs");
 
 var res = process.argv[3];
-// console.log(keys)
-// var event = process.argv[2];
+// console.log("THis is an issue" +res)
+var event = process.argv[2];
+// console.log("THis is an issue" +event)
 var spotify = new Spotify(keys.spotify);
 // switch statment to take in a three functions
-switch (process.argv) {
+switch (event) {
     case "spotify-this-song":
         spotifyThis(res);
         break;
@@ -50,9 +51,9 @@ function spotifyThis(song) {
     if (song === '') {
         song = "The Sign";
     }
-    spotify.search({ type: "Song: ", res: song }, function (err, data) {
+    spotify.search({ type: "track", query: song}, function (err, data) {
         if (err) {
-            return ("Oops something went wrong... " + err)
+            return console.log("Oops something went wrong... " + err);
         }
         console.log("Artist: " + data.tracks.items[0].artists[0].name +
             " | " + "Song: " + data.tracks.items[0].name +
